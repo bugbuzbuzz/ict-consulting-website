@@ -12,3 +12,7 @@
 - [x] Connect frontend contact form to backend API
 - [x] Add form validation and success/error feedback
 - [x] Test the contact form submission
+- [x] Add hero section background/decorative image
+- [x] Add service icons or illustrations
+- [x] Add case study project visualization
+- [x] Enhance team section with better avatar styling
