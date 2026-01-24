@@ -16,3 +16,5 @@
 - [x] Add service icons or illustrations
 - [x] Add case study project visualization
 - [x] Enhance team section with better avatar styling
+- [x] Create comprehensive deployment guide for self-hosting
+- [x] Export code package for deployment
