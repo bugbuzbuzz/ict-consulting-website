@@ -1,14 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { companyInfo, services, team, caseStudy } from "@/content";
-import { ArrowRight, CheckCircle2, ClipboardCheck, Globe, Mail, MapPin, Network, Server, Users } from "lucide-react";
+import { ArrowRight, CheckCircle2, ClipboardCheck, Globe, Mail, MapPin, Menu, Network, Server, Users } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from "react";
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
     }
   };
 
@@ -17,20 +22,61 @@ export default function Home() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
-          <div className="mr-4 hidden md:flex">
-            <a className="mr-6 flex items-center space-x-2" href="/">
-              <span className="hidden font-bold sm:inline-block text-xl tracking-tighter">
+          {/* Desktop Logo & Nav */}
+          <div className="hidden md:flex items-center w-full">
+            <a className="mr-8 flex items-center space-x-2" href="/">
+              <span className="font-bold text-xl tracking-tighter">
                 {companyInfo.name}
               </span>
             </a>
-            <nav className="flex items-center space-x-6 text-sm font-medium">
-              <button onClick={() => scrollToSection('services')} className="transition-colors hover:text-foreground/80 text-foreground/60">Services</button>
-              <button onClick={() => scrollToSection('case-study')} className="transition-colors hover:text-foreground/80 text-foreground/60">Case Study</button>
-              <button onClick={() => scrollToSection('team')} className="transition-colors hover:text-foreground/80 text-foreground/60">Team</button>
-              <button onClick={() => scrollToSection('contact')} className="transition-colors hover:text-foreground/80 text-foreground/60">Contact</button>
+            {/* Horizontal Menu for Desktop */}
+            <nav className="flex items-center space-x-8 text-sm font-medium flex-1">
+              <button onClick={() => scrollToSection('services')} className="transition-colors hover:text-primary text-foreground/70">Services</button>
+              <button onClick={() => scrollToSection('case-study')} className="transition-colors hover:text-primary text-foreground/70">Case Study</button>
+              <button onClick={() => scrollToSection('team')} className="transition-colors hover:text-primary text-foreground/70">Team</button>
+              <button onClick={() => scrollToSection('contact')} className="transition-colors hover:text-primary text-foreground/70">Contact</button>
             </nav>
+            <Button onClick={() => scrollToSection('contact')}>Get in Touch</Button>
           </div>
-          <Button onClick={() => scrollToSection('contact')}>Get in Touch</Button>
+
+          {/* Mobile Nav */}
+          <div className="flex md:hidden items-center justify-between w-full">
+            <a className="font-bold text-lg tracking-tighter" href="/">
+              {companyInfo.name}
+            </a>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Toggle Menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <nav className="flex flex-col gap-6 mt-10">
+                  <a href="/" className="font-bold text-xl tracking-tighter mb-4">
+                    {companyInfo.name}
+                  </a>
+                  <button onClick={() => scrollToSection('services')} className="text-left text-lg font-medium hover:text-primary transition-colors">
+                    Services
+                  </button>
+                  <button onClick={() => scrollToSection('case-study')} className="text-left text-lg font-medium hover:text-primary transition-colors">
+                    Case Study
+                  </button>
+                  <button onClick={() => scrollToSection('team')} className="text-left text-lg font-medium hover:text-primary transition-colors">
+                    Team
+                  </button>
+                  <button onClick={() => scrollToSection('contact')} className="text-left text-lg font-medium hover:text-primary transition-colors">
+                    Contact
+                  </button>
+                  <div className="pt-6">
+                    <Button className="w-full" onClick={() => scrollToSection('contact')}>
+                      Get in Touch
+                    </Button>
+                  </div>
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </nav>
 
