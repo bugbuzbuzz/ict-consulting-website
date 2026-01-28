@@ -36,7 +36,7 @@ export const team = [
   {
     role: "Leadership",
     members: [
-      { name: "Alex Tan", title: "CEO & Founder", bio: "Former CTO with 20+ years in regional ICT leadership." }
+      { name: "Peter Qiu", title: "CEO & Founder", bio: "Former CTO with 15+ years in regional ICT leadership." }
     ]
   },
   {
