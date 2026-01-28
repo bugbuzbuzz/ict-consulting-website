@@ -124,8 +124,8 @@ export default function CaseStudyDetail() {
               <div className="space-y-2">
                 <h3 className="text-xl font-semibold">2. Cross-Border Connectivity & Acceleration</h3>
                 <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
-                  <li><strong>IEPL Circuits:</strong> Provisioned dual-diverse IEPL circuits (1Gbps each) connecting Singapore Equinix SG1 DC to Beijing and Shenzhen data centers.</li>
-                  <li><strong>China Premium Internet:</strong> Integrated China Telecom's CN2 DIA for optimized public internet routing to mainland China.</li>
+                  <li><strong>CMI IEPL Circuits:</strong> CMI IEPL Circuits: Provisioned dual-diverse International Ethernet Private Line (IEPL) circuits (1Gbps each) via China Mobile International (CMI), connecting Singapore Equinix SG1 DC to Beijing and Shenzhen data centers.</li>
+                  <li><strong>China Mobile Global Transit:</strong> Integrated CMI Premium Internet (CMNET) to provide high-speed, low-latency public internet routing directly to mainland China, bypassing common international congestion points.</li>
                 </ul>
               </div>
 
